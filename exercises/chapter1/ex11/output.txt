@@ -1,0 +1,18 @@
+(EXECUTE MULTIPLE)
+
+0.13s  120936 https://data.gov
+0.20s    4763 https://theuselessweb.com
+0.98s 13475096 https://www.ucraft.com/blog/i/best-random-websites-to-visit-when-bored
+0.98s elapsed
+
+0.03s  120936 https://data.gov
+0.12s    4763 https://theuselessweb.com
+1.13s 13475096 https://www.ucraft.com/blog/i/best-random-websites-to-visit-when-bored
+1.13s elapsed
+
+(EXECUTE NON-RUNNING WEBSITE)
+
+go build ./ex11/ex1-11.go http://bad.gopl.io
+go: cannot find main module, but found .git/config in /Users/ivan_parvanovski/Desktop/go-introduction
+     to create a module there, run:
+     cd ../../.. && go mod init
