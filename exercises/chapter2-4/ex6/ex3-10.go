@@ -5,6 +5,14 @@ import (
 	"fmt"
 )
 
+func main() {
+	tests := []string{"1", "12", "123", "1234", "12345", "123456", "1234567"}
+	
+	for _, t := range tests {
+		fmt.Println(newComma(t))
+	}
+}
+
 func reverse(b []byte) []byte {
 	i, j := 0, len(b)-1
 	for i < j {
@@ -34,8 +42,4 @@ func newComma(s string) string {
 	}
 	return string(reverse(buf.Bytes()))
 	
-}
-
-func main() {
-	fmt.Println(newComma("1234895"))
 }

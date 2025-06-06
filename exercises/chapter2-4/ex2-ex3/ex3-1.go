@@ -20,12 +20,27 @@ func main() {
 	fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' "+
 		"style='stroke: grey; fill: white; stroke-width: 0.7' "+
 		"width='%d' height='%d'>", width, height)
-	for i := 0; i < cells; i++ {
-		for j := 0; j < cells; j++ {
+
+	for i := range cells {
+		for j := range cells {
 			ax, ay := corner(i+1, j)
 			bx, by := corner(i, j)
 			cx, cy := corner(i, j+1)
 			dx, dy := corner(i+1, j+1)
+
+			points := []float64{ax, ay, bx, by, cx, cy, dx, dy}
+			invalid := false
+			for _, p := range points {
+				if math.IsNaN(p) || math.IsInf(p, 0) {
+					invalid = true
+				}
+			}
+			if invalid {
+				continue
+			}
+
+			// z := ((az + bz + cz + dz) / 4.0)
+
 			fmt.Printf("<polygon points='%g,%g %g,%g %g,%g %g,%g'/>\n",
 				ax, ay, bx, by, cx, cy, dx, dy)
 		}
