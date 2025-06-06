@@ -14,8 +14,8 @@ func main() {
   // Wrap it in a LimitReader with a 12-byte limit
   limited := LimitReader(src, 12)
 
-  buf := make([]byte, 5) // read in 5-byte chunks
-
+  // read in 5-byte chunks
+  buf := make([]byte, 5) 
   for {
 	  n, err := limited.Read(buf)
 	  if err == io.EOF {
